@@ -16,7 +16,7 @@ public class GameTestSuite {
         logic.nextMove(myBoard, 2, new Circle());
         //When
         boolean firstCheck = logic.checkIfVictory(myBoard);
-        boolean secondCheck = logic.checkLoss(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
         //Then
         Assert.assertTrue(firstCheck);
         Assert.assertTrue(secondCheck);

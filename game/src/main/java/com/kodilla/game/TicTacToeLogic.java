@@ -33,7 +33,7 @@ public class TicTacToeLogic {
 
     }
 
-    public boolean checkLoss(Board board) {
+    public boolean areAnyBlankFieldsOnBoard(Board board) {
         for(Symbol item : board.getBoard()) {
             if (item instanceof Blank) return true;
         }
