@@ -1,0 +1,7 @@
+package com.kodilla.game;
+
+public class TicTacToe {
+    public static void main(String[] args) {
+
+    }
+}
