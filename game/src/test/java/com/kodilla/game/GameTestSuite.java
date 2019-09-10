@@ -10,11 +10,15 @@ public class GameTestSuite {
         TicTacToeLogic logic = new TicTacToeLogic();
         Board myBoard = Board.createBoard();
         logic.nextMove(myBoard, 0, new Circle());
+        logic.nextMove(myBoard, 8, new Cross());
+        logic.nextMove(myBoard, 1, new Circle());
+        logic.nextMove(myBoard, 7, new Cross());
+        logic.nextMove(myBoard, 2, new Circle());
         //When
         boolean firstCheck = logic.checkIfVictory(myBoard);
         boolean secondCheck = logic.checkLoss(myBoard);
         //Then
-        Assert.assertFalse(firstCheck);
+        Assert.assertTrue(firstCheck);
         Assert.assertTrue(secondCheck);
     }
 }
