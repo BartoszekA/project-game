@@ -8,7 +8,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -26,14 +25,14 @@ public class TicTacToe extends Application {
     @Override
     public void start(Stage myStage)  {
 
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, false, false, true, false);
-        BackgroundImage backgroundImage = new BackgroundImage(imgback, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, null);
+        BackgroundSize backgroundSize = new BackgroundSize(600, 600, false, false, false, false);
+        BackgroundImage backgroundImage = new BackgroundImage(imgback, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
 
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.TOP_CENTER);
+        grid.setAlignment(Pos.CENTER);
         grid.setBackground(background);
-        grid.setPadding(new Insets(100, 100, 150, 100));
+        grid.setPadding(new Insets(100, 100, 200, 100));
 
 
 
@@ -44,8 +43,9 @@ public class TicTacToe extends Application {
         circle.setFill(Color.TRANSPARENT);
         circle.setStroke(Color.BLACK);
         circle.setStrokeWidth(5);
+        //circle.relocate(250, 300);
 
-        grid.setConstraints(circle, 0, 0);
+        //grid.setConstraints(circle, 0, 0);
 
         grid.getChildren().add(circle);
 
