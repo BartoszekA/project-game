@@ -49,7 +49,7 @@ public class TicTacToe extends Application {
 
         grid.getChildren().add(circle);
 
-        Scene scene = new Scene(grid, 500, 500, Color.BLACK);
+        Scene scene = new Scene(grid, 600, 600, Color.BLACK);
 
         myStage.setTitle("Kółko i krzyżyk");
         myStage.setScene(scene);
