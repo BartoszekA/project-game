@@ -31,9 +31,16 @@ public class TicTacToe extends Application {
         Background background = new Background(backgroundImage);
 
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.TOP_LEFT);
+        //grid.setAlignment(Pos.TOP_LEFT);
         grid.setBackground(background);
         grid.setPadding(new Insets(100, 150, 200, 150));
+        grid.setGridLinesVisible(true);
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getRowConstraints().add(new RowConstraints(100));
+        grid.getRowConstraints().add(new RowConstraints(100));
+        grid.getRowConstraints().add(new RowConstraints(100));
 
 
 
@@ -42,7 +49,7 @@ public class TicTacToe extends Application {
         //circle.setCenterY(200);
         circle.setRadius(25);
         circle.setFill(Color.TRANSPARENT);
-        circle.setStroke(Color.BLACK);
+        circle.setStroke(Color.RED);
         circle.setStrokeWidth(5);
         //circle.relocate(250, 300);
 
@@ -51,12 +58,15 @@ public class TicTacToe extends Application {
 
 
         Line lineA = new Line(100, 150, 200, 250);
-        lineA.setStroke(Color.BLACK);
+        lineA.setStroke(Color.RED);
         lineA.setStrokeWidth(5);
 
         Line lineB = new Line(100, 250, 200, 150);
-        lineB.setStroke(Color.BLACK);
+        lineB.setStroke(Color.RED);
         lineB.setStrokeWidth(5);
+
+        grid.setConstraints(lineA, 1, 0);
+        grid.setConstraints(lineB, 1, 0);
 
         grid.getChildren().addAll(circle, lineA, lineB);
 
