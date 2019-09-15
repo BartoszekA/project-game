@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 
@@ -30,9 +31,9 @@ public class TicTacToe extends Application {
         Background background = new Background(backgroundImage);
 
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
+        grid.setAlignment(Pos.TOP_LEFT);
         grid.setBackground(background);
-        grid.setPadding(new Insets(100, 100, 200, 100));
+        grid.setPadding(new Insets(100, 150, 200, 150));
 
 
 
@@ -45,9 +46,19 @@ public class TicTacToe extends Application {
         circle.setStrokeWidth(5);
         //circle.relocate(250, 300);
 
-        //grid.setConstraints(circle, 0, 0);
+        grid.setConstraints(circle, 0, 0);
 
-        grid.getChildren().add(circle);
+
+
+        Line lineA = new Line(100, 150, 200, 250);
+        lineA.setStroke(Color.BLACK);
+        lineA.setStrokeWidth(5);
+
+        Line lineB = new Line(100, 250, 200, 150);
+        lineB.setStroke(Color.BLACK);
+        lineB.setStrokeWidth(5);
+
+        grid.getChildren().addAll(circle, lineA, lineB);
 
         Scene scene = new Scene(grid, 600, 600, Color.BLACK);
 
