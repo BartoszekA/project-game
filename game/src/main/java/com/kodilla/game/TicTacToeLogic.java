@@ -1,10 +1,18 @@
 package com.kodilla.game;
 
 public class TicTacToeLogic {
+    private Symbol currentSymbol;
+    private Board currentBoard;
+
+    public Board getCurrentBoard() {
+        return currentBoard;
+    }
 
     public Board nextMove(Board board, int place, Symbol symbol) {
         if (board.getBoard().get(place) instanceof Blank) {
             board.getBoard().set(place, symbol);
+            currentSymbol = symbol;
+            currentBoard = board;
         }
         return board;
     }
@@ -38,5 +46,13 @@ public class TicTacToeLogic {
             if (item instanceof Blank) return true;
         }
         return false;
+    }
+
+    public Symbol getNextSymbol(){
+        if (currentSymbol instanceof Circle) {
+            return new Cross();
+        } else {
+            return new Circle();
+        }
     }
 }
