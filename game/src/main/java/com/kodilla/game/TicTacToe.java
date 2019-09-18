@@ -107,207 +107,171 @@ public class TicTacToe extends Application {
             @Override
         public void handle(MouseEvent event) {
             Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while(!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r00), grid.getRowIndex(r00));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r00), grid.getRowIndex(r00));
                     }
                     logic.nextMove(board, 0, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
-    });
+        });
 
         r01.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while(!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r01), grid.getRowIndex(r01));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r01), grid.getRowIndex(r01));
                     }
                     logic.nextMove(board, 1, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r02.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while(!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r02), grid.getRowIndex(r02));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r02), grid.getRowIndex(r02));
                     }
                     logic.nextMove(board, 2, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r10.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while(!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r10), grid.getRowIndex(r10));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r10), grid.getRowIndex(r10));
                     }
                     logic.nextMove(board, 3, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r11.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while (!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r11), grid.getRowIndex(r11));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r11), grid.getRowIndex(r11));
                     }
                     logic.nextMove(board, 4, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r12.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while (!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r12), grid.getRowIndex(r12));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r12), grid.getRowIndex(r12));
                     }
                     logic.nextMove(board, 5, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r20.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while (!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
                     }
                     logic.nextMove(board, 6, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r21.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while (!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r21), grid.getRowIndex(r21));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r21), grid.getRowIndex(r21));
                     }
                     logic.nextMove(board, 7, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
         r22.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Symbol nextSymbol = logic.getNextSymbol();
-                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                boolean blanks = logic.areAnyBlankFieldsOnBoard(logic.getCurrentBoard());
-                while (!victory && !blanks) {
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r22), grid.getRowIndex(r22));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r22), grid.getRowIndex(r22));
                     }
                     logic.nextMove(board, 8, nextSymbol);
-                    victory = logic.checkIfVictory(logic.getCurrentBoard());
+                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
                     }
                 }
-            }
         });
 
 
