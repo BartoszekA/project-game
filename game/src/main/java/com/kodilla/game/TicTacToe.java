@@ -18,6 +18,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 
@@ -130,6 +132,8 @@ public class TicTacToe extends Application {
         r22.setFill(Color.TRANSPARENT);
         grid.setConstraints(r22, 2, 2);
 
+        List<Rectangle> fields = Arrays.asList(r00, r01, r02, r10, r11, r12, r20, r21, r22);
+
 
         r00.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -147,7 +151,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -169,7 +173,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -191,7 +195,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -213,7 +217,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -235,7 +239,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -257,7 +261,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -279,7 +283,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -301,7 +305,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -323,7 +327,7 @@ public class TicTacToe extends Application {
                         System.out.println("Victory!");
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                        computerMove(grid, board, logic, fields);
                     }
                 }
             }
@@ -363,15 +367,16 @@ public class TicTacToe extends Application {
         grid.getChildren().addAll(lineA, lineB);
     }
 
-    private Board computerMove(GridPane grid, Board board, TicTacToeLogic logic, Rectangle r00, Rectangle r01, Rectangle r02, Rectangle r10, Rectangle r11, Rectangle r12, Rectangle r20, Rectangle r21, Rectangle r22) {
+    private Board computerMove(GridPane grid, Board board, TicTacToeLogic logic, List<Rectangle> fields) {
         Random random = new Random();
-        int a = random.nextInt(9);
+        int a = random.nextInt(fields.size());
+        System.out.println(a);
         if (board.getBoard().get(a) instanceof Blank) {
             Symbol nextSymbol = logic.getNextSymbol();
             if (nextSymbol instanceof com.kodilla.game.Circle) {
-                drawCircle(grid, grid.getColumnIndex(getRectangle(a, r00, r01, r02, r10, r11, r12, r20, r21, r22)), grid.getRowIndex(getRectangle(a, r00, r01, r02, r10, r11, r12, r20, r21, r22)));
+                drawCircle(grid, grid.getColumnIndex(fields.get(a)), grid.getRowIndex(fields.get(a)));
             } else {
-                drawCross(grid, grid.getColumnIndex(getRectangle(a, r00, r01, r02, r10, r11, r12, r20, r21, r22)), grid.getRowIndex(getRectangle(a, r00, r01, r02, r10, r11, r12, r20, r21, r22)));
+                drawCross(grid, grid.getColumnIndex(fields.get(a)), grid.getRowIndex(fields.get(a)));
             }
             logic.nextMove(board, a, nextSymbol);
             boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
@@ -381,41 +386,10 @@ public class TicTacToe extends Application {
                 System.out.println("Try again!");
             }
         } else {
-            a = random.nextInt(9);
-            computerMove(grid, board, logic, r00, r01, r02, r10, r11, r12, r20, r21, r22);
+            a = random.nextInt(fields.size());
+            computerMove(grid, board, logic, fields);
         }
         return board;
-    }
-
-    private Rectangle getRectangle(int a, Rectangle r00, Rectangle r01, Rectangle r02, Rectangle r10, Rectangle r11, Rectangle r12, Rectangle r20, Rectangle r21, Rectangle r22) {
-        if (a == 0) {
-            return r00;
-        }
-        if (a == 1) {
-            return r01;
-        }
-        if (a == 2) {
-            return r02;
-        }
-        if (a == 3) {
-            return r10;
-        }
-        if (a == 4) {
-            return r11;
-        }
-        if (a == 5) {
-            return r12;
-        }
-        if (a == 6) {
-            return r20;
-        }
-        if (a == 7) {
-            return r21;
-        }
-        if (a ==8) {
-            return r22;
-        } else
-            return null;
     }
 }
 
