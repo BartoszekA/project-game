@@ -21,7 +21,7 @@ public class TicTacToeLogic {
 
         return (board.getBoard().get(0) instanceof Cross && board.getBoard().get(1) instanceof Cross && board.getBoard().get(2) instanceof Cross) ||
                 (board.getBoard().get(3) instanceof Cross && board.getBoard().get(4) instanceof Cross && board.getBoard().get(5) instanceof Cross) ||
-                (board.getBoard().get(6) instanceof Cross && board.getBoard().get(7) instanceof Cross && board.getBoard().get(2) instanceof Cross) ||
+                (board.getBoard().get(6) instanceof Cross && board.getBoard().get(7) instanceof Cross && board.getBoard().get(8) instanceof Cross) ||
                 (board.getBoard().get(0) instanceof Cross && board.getBoard().get(3) instanceof Cross && board.getBoard().get(6) instanceof Cross) ||
                 (board.getBoard().get(1) instanceof Cross && board.getBoard().get(4) instanceof Cross && board.getBoard().get(7) instanceof Cross) ||
                 (board.getBoard().get(2) instanceof Cross && board.getBoard().get(5) instanceof Cross && board.getBoard().get(8) instanceof Cross) ||
@@ -30,15 +30,12 @@ public class TicTacToeLogic {
 
                 (board.getBoard().get(0) instanceof Circle && board.getBoard().get(1) instanceof Circle && board.getBoard().get(2) instanceof Circle) ||
                 (board.getBoard().get(3) instanceof Circle && board.getBoard().get(4) instanceof Circle && board.getBoard().get(5) instanceof Circle) ||
-                (board.getBoard().get(6) instanceof Circle && board.getBoard().get(7) instanceof Circle && board.getBoard().get(2) instanceof Circle) ||
+                (board.getBoard().get(6) instanceof Circle && board.getBoard().get(7) instanceof Circle && board.getBoard().get(8) instanceof Circle) ||
                 (board.getBoard().get(0) instanceof Circle && board.getBoard().get(3) instanceof Circle && board.getBoard().get(6) instanceof Circle) ||
                 (board.getBoard().get(1) instanceof Circle && board.getBoard().get(4) instanceof Circle && board.getBoard().get(7) instanceof Circle) ||
                 (board.getBoard().get(2) instanceof Circle && board.getBoard().get(5) instanceof Circle && board.getBoard().get(8) instanceof Circle) ||
                 (board.getBoard().get(0) instanceof Circle && board.getBoard().get(4) instanceof Circle && board.getBoard().get(8) instanceof Circle) ||
                 (board.getBoard().get(2) instanceof Circle && board.getBoard().get(4) instanceof Circle && board.getBoard().get(6) instanceof Circle);
-
-
-
     }
 
     public boolean areAnyBlankFieldsOnBoard(Board board) {
