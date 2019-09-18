@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -30,7 +34,21 @@ public class TicTacToe extends Application {
         BackgroundImage backgroundImage = new BackgroundImage(imgback, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
 
+        // Menu
+        BorderPane root = new BorderPane();
+        Menu menu1 = new Menu("Plik");
+        MenuItem newGame = new MenuItem("Nowa gra");
+        MenuItem closeGame = new MenuItem("Zakończ grę");
+        Menu menu2 = new Menu("Opcje");
+        Menu menu3 = new Menu("Pomoc");
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(menu1, menu2, menu3);
+        menu1.getItems().addAll(newGame, closeGame);
+
+
+        // GridPane
         GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
         grid.setBackground(background);
         grid.setPadding(new Insets(100, 150, 200, 150));
 
@@ -40,6 +58,12 @@ public class TicTacToe extends Application {
         grid.getRowConstraints().add(new RowConstraints(100));
         grid.getRowConstraints().add(new RowConstraints(100));
         grid.getRowConstraints().add(new RowConstraints(100));
+
+        // Panes order
+        root.setTop(menuBar);
+        root.setCenter(grid);
+
+        //setGridLinesVisible to be removed then
 
         grid.setGridLinesVisible(true);
 
@@ -106,6 +130,7 @@ public class TicTacToe extends Application {
         r00.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
         public void handle(MouseEvent event) {
+                if(board.getBoard().get(0) instanceof Blank) {
             Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r00), grid.getRowIndex(r00));
@@ -119,12 +144,13 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r01.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(board.getBoard().get(1) instanceof Blank){
                 Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r01), grid.getRowIndex(r01));
@@ -138,12 +164,13 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r02.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(board.getBoard().get(2) instanceof Blank){
                 Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r02), grid.getRowIndex(r02));
@@ -157,12 +184,13 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r10.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(board.getBoard().get(3) instanceof Blank) {
                 Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r10), grid.getRowIndex(r10));
@@ -176,12 +204,13 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r11.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(board.getBoard().get(4) instanceof Blank) {
                 Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r11), grid.getRowIndex(r11));
@@ -195,13 +224,14 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r12.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Symbol nextSymbol = logic.getNextSymbol();
+                if(board.getBoard().get(5) instanceof Blank)
+                {Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r12), grid.getRowIndex(r12));
                     } else {
@@ -214,32 +244,35 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r20.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
-                        drawCircle(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
-                    } else {
-                        drawCross(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
-                    }
-                    logic.nextMove(board, 6, nextSymbol);
-                    boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
-                    if (victory) {
-                        System.out.println("Victory!");
-                    } else {
-                        System.out.println("Try again!");
-                    }
+                if (board.getBoard().get(6) instanceof Blank) {
+                    Symbol nextSymbol = logic.getNextSymbol();
+                if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    drawCircle(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
+                } else {
+                    drawCross(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
                 }
+                logic.nextMove(board, 6, nextSymbol);
+                boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
+                if (victory) {
+                    System.out.println("Victory!");
+                } else {
+                    System.out.println("Try again!");
+                }
+            }
+        }
         });
 
         r21.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Symbol nextSymbol = logic.getNextSymbol();
+                if(board.getBoard().get(7) instanceof Blank)
+                {Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r21), grid.getRowIndex(r21));
                     } else {
@@ -252,12 +285,13 @@ public class TicTacToe extends Application {
                     } else {
                         System.out.println("Try again!");
                     }
-                }
+                }}
         });
 
         r22.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(board.getBoard().get(8) instanceof Blank) {
                 Symbol nextSymbol = logic.getNextSymbol();
                     if (nextSymbol instanceof com.kodilla.game.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r22), grid.getRowIndex(r22));
@@ -272,12 +306,13 @@ public class TicTacToe extends Application {
                         System.out.println("Try again!");
                     }
                 }
+            }
         });
 
 
         grid.getChildren().addAll(r00, r01, r02, r10, r11, r12, r20, r21, r22);
 
-        Scene scene = new Scene(grid, 600, 600, Color.BLACK);
+        Scene scene = new Scene(root, 600, 600, Color.BLACK);
 
         myStage.setTitle("Kółko i krzyżyk");
         myStage.setScene(scene);
@@ -295,7 +330,6 @@ public class TicTacToe extends Application {
     }
 
     private void drawCross(GridPane grid, int a, int b) {
-        System.out.println("X");
         Line lineA = new Line(a+1*100, b+1*150, a+1*200, b+1*250);
         lineA.setStroke(Color.RED);
         lineA.setStrokeWidth(5);
@@ -307,10 +341,5 @@ public class TicTacToe extends Application {
         grid.setConstraints(lineA, a, b);
         grid.setConstraints(lineB, a, b);
         grid.getChildren().addAll(lineA, lineB);
-    }
-
-    @Override
-    public void stop() throws Exception {
-        super.stop();
     }
 }
