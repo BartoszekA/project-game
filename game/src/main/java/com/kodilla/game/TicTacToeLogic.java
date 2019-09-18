@@ -10,7 +10,7 @@ public class TicTacToeLogic {
 
     public Board nextMove(Board board, int place, Symbol symbol) {
 
-        if (board.getBoard().get(place) instanceof Blank && !(board.getBoard().get(place) instanceof Circle) && !(board.getBoard().get(place) instanceof Cross)) {
+        if (board.getBoard().get(place) instanceof Blank) {
             board.getBoard().set(place, symbol);
             currentSymbol = symbol;
             currentBoard = board;
