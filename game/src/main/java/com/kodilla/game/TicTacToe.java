@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -15,6 +16,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
@@ -25,7 +28,7 @@ import java.util.Random;
 
 public class TicTacToe extends Application {
 
-    private Image imgback = new Image("https://i.ibb.co/z8tdB6T/imgbckgrd.jpg");
+    private Image imgback = new Image("https://i.ibb.co/SJtMQts/imgbck.jpg");
 
     public static void main(String[] args) {
         launch(args);
@@ -79,55 +82,55 @@ public class TicTacToe extends Application {
 
         //board
         Rectangle r00 = new Rectangle(100, 100);
-        r00.setStroke(Color.RED);
+        r00.setStroke(Color.DARKVIOLET);
         r00.setStrokeWidth(5);
         r00.setFill(Color.TRANSPARENT);
         grid.setConstraints(r00, 0, 0);
 
         Rectangle r01 = new Rectangle(100, 100);
-        r01.setStroke(Color.RED);
+        r01.setStroke(Color.DARKVIOLET);
         r01.setStrokeWidth(5);
         r01.setFill(Color.TRANSPARENT);
         grid.setConstraints(r01, 0, 1);
 
         Rectangle r02 = new Rectangle(100, 100);
-        r02.setStroke(Color.RED);
+        r02.setStroke(Color.DARKVIOLET);
         r02.setStrokeWidth(5);
         r02.setFill(Color.TRANSPARENT);
         grid.setConstraints(r02, 0, 2);
 
         Rectangle r10 = new Rectangle(100, 100);
-        r10.setStroke(Color.RED);
+        r10.setStroke(Color.DARKVIOLET);
         r10.setStrokeWidth(5);
         r10.setFill(Color.TRANSPARENT);
         grid.setConstraints(r10, 1, 0);
 
         Rectangle r11 = new Rectangle(100, 100);
-        r11.setStroke(Color.RED);
+        r11.setStroke(Color.DARKVIOLET);
         r11.setStrokeWidth(5);
         r11.setFill(Color.TRANSPARENT);
         grid.setConstraints(r11, 1, 1);
 
         Rectangle r12 = new Rectangle(100, 100);
-        r12.setStroke(Color.RED);
+        r12.setStroke(Color.DARKVIOLET);
         r12.setStrokeWidth(5);
         r12.setFill(Color.TRANSPARENT);
         grid.setConstraints(r12, 1, 2);
 
         Rectangle r20 = new Rectangle(100, 100);
-        r20.setStroke(Color.RED);
+        r20.setStroke(Color.DARKVIOLET);
         r20.setStrokeWidth(5);
         r20.setFill(Color.TRANSPARENT);
         grid.setConstraints(r20, 2, 0);
 
         Rectangle r21 = new Rectangle(100, 100);
-        r21.setStroke(Color.RED);
+        r21.setStroke(Color.DARKVIOLET);
         r21.setStrokeWidth(5);
         r21.setFill(Color.TRANSPARENT);
         grid.setConstraints(r21, 2, 1);
 
         Rectangle r22 = new Rectangle(100, 100);
-        r22.setStroke(Color.RED);
+        r22.setStroke(Color.DARKVIOLET);
         r22.setStrokeWidth(5);
         r22.setFill(Color.TRANSPARENT);
         grid.setConstraints(r22, 2, 2);
@@ -149,9 +152,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -171,9 +175,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -193,9 +198,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -215,9 +221,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -237,9 +244,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -259,9 +267,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -281,9 +290,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -303,9 +313,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -325,9 +336,10 @@ public class TicTacToe extends Application {
                     boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
                     if (victory) {
                         System.out.println("Victory!");
+                        victory(myStage);
                     } else {
                         System.out.println("Try again!");
-                        computerMove(grid, board, logic, fields);
+                        computerMove(grid, myStage, board, logic, fields);
                     }
                 }
             }
@@ -337,7 +349,7 @@ public class TicTacToe extends Application {
         grid.getChildren().addAll(r00, r01, r02, r10, r11, r12, r20, r21, r22);
 
         Scene scene = new Scene(root, 600, 600, Color.BLACK);
-
+        myStage.setResizable(false);
         myStage.setTitle("Kółko i krzyżyk");
         myStage.setScene(scene);
         myStage.show();
@@ -347,7 +359,7 @@ public class TicTacToe extends Application {
         Circle circle = new Circle();
         circle.setRadius(45);
         circle.setFill(Color.TRANSPARENT);
-        circle.setStroke(Color.RED);
+        circle.setStroke(Color.DEEPPINK);
         circle.setStrokeWidth(5);
         grid.setConstraints(circle, a, b);
         grid.getChildren().add(circle);
@@ -355,11 +367,11 @@ public class TicTacToe extends Application {
 
     private void drawCross(GridPane grid, int a, int b) {
         Line lineA = new Line(a + 1 * 100, b + 1 * 150, a + 1 * 200, b + 1 * 250);
-        lineA.setStroke(Color.RED);
+        lineA.setStroke(Color.DEEPPINK);
         lineA.setStrokeWidth(5);
 
         Line lineB = new Line(a + 1 * 100, b + 1 * 250, a + 1 * 200, b + 1 * 150);
-        lineB.setStroke(Color.RED);
+        lineB.setStroke(Color.DEEPPINK);
         lineB.setStrokeWidth(5);
 
         grid.setConstraints(lineA, a, b);
@@ -367,7 +379,7 @@ public class TicTacToe extends Application {
         grid.getChildren().addAll(lineA, lineB);
     }
 
-    private Board computerMove(GridPane grid, Board board, TicTacToeLogic logic, List<Rectangle> fields) {
+    private Board computerMove(GridPane grid, Stage myStage, Board board, TicTacToeLogic logic, List<Rectangle> fields) {
         Random random = new Random();
         int a = random.nextInt(fields.size());
         System.out.println(a);
@@ -382,14 +394,31 @@ public class TicTacToe extends Application {
             boolean victory = logic.checkIfVictory(logic.getCurrentBoard());
             if (victory) {
                 System.out.println("Victory!");
+                Popup popup = new Popup();
+                Button btn = new Button("Przegrałeś! Koniec gry.");
+                btn.setOnAction(e -> Platform.exit());
+                popup.getContent().add(btn);
+                popup.setAnchorLocation(PopupWindow.AnchorLocation.CONTENT_BOTTOM_LEFT);
+                popup.show(myStage);
             } else {
                 System.out.println("Try again!");
             }
         } else {
-            a = random.nextInt(fields.size());
-            computerMove(grid, board, logic, fields);
+            if (logic.areAnyBlankFieldsOnBoard(board)) {
+                a = random.nextInt(fields.size());
+                computerMove(grid, myStage, board, logic, fields);
+            }
         }
         return board;
+    }
+
+    private void victory(Stage myStage) {
+        Popup popup = new Popup();
+        Button btn = new Button("Wygrałeś! Koniec gry.");
+        btn.setOnAction(e -> Platform.exit());
+        popup.getContent().add(btn);
+        popup.setAnchorLocation(PopupWindow.AnchorLocation.CONTENT_BOTTOM_LEFT);
+        popup.show(myStage);
     }
 }
 
