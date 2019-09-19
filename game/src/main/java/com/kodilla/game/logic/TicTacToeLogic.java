@@ -1,4 +1,4 @@
-package com.kodilla.game;
+package com.kodilla.game.logic;
 
 public class TicTacToeLogic {
     private Symbol currentSymbol;

@@ -1,5 +1,9 @@
 package com.kodilla.game;
 
+import com.kodilla.game.logic.Board;
+import com.kodilla.game.logic.Circle;
+import com.kodilla.game.logic.Cross;
+import com.kodilla.game.logic.TicTacToeLogic;
 import org.junit.Assert;
 import org.junit.Test;
 

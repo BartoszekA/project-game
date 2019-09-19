@@ -1,5 +1,9 @@
-package com.kodilla.game;
+package com.kodilla.game.ui;
 
+import com.kodilla.game.logic.Blank;
+import com.kodilla.game.logic.Board;
+import com.kodilla.game.logic.Symbol;
+import com.kodilla.game.logic.TicTacToeLogic;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -143,7 +147,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(0) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r00), grid.getRowIndex(r00));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r00), grid.getRowIndex(r00));
@@ -166,7 +170,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(1) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r01), grid.getRowIndex(r01));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r01), grid.getRowIndex(r01));
@@ -189,7 +193,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(2) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r02), grid.getRowIndex(r02));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r02), grid.getRowIndex(r02));
@@ -212,7 +216,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(3) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r10), grid.getRowIndex(r10));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r10), grid.getRowIndex(r10));
@@ -235,7 +239,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(4) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r11), grid.getRowIndex(r11));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r11), grid.getRowIndex(r11));
@@ -258,7 +262,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(5) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r12), grid.getRowIndex(r12));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r12), grid.getRowIndex(r12));
@@ -281,7 +285,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(6) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r20), grid.getRowIndex(r20));
@@ -304,7 +308,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(7) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r21), grid.getRowIndex(r21));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r21), grid.getRowIndex(r21));
@@ -327,7 +331,7 @@ public class TicTacToe extends Application {
             public void handle(MouseEvent event) {
                 if (board.getBoard().get(8) instanceof Blank) {
                     Symbol nextSymbol = logic.getNextSymbol();
-                    if (nextSymbol instanceof com.kodilla.game.Circle) {
+                    if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                         drawCircle(grid, grid.getColumnIndex(r22), grid.getRowIndex(r22));
                     } else {
                         drawCross(grid, grid.getColumnIndex(r22), grid.getRowIndex(r22));
@@ -385,7 +389,7 @@ public class TicTacToe extends Application {
         System.out.println(a);
         if (board.getBoard().get(a) instanceof Blank) {
             Symbol nextSymbol = logic.getNextSymbol();
-            if (nextSymbol instanceof com.kodilla.game.Circle) {
+            if (nextSymbol instanceof com.kodilla.game.logic.Circle) {
                 drawCircle(grid, grid.getColumnIndex(fields.get(a)), grid.getRowIndex(fields.get(a)));
             } else {
                 drawCross(grid, grid.getColumnIndex(fields.get(a)), grid.getRowIndex(fields.get(a)));
