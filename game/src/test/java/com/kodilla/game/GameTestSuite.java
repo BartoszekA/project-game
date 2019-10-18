@@ -116,6 +116,97 @@ public class GameTestSuite {
         //Then
         Assert.assertTrue(firstCheck);
         Assert.assertTrue(secondCheck);
+    }
 
+    @Test
+    public void testCaseTicTacToe7() {
+        //Given
+        TicTacToeLogic logic = new TicTacToeLogic();
+        Board myBoard = Board.createBoard();
+        logic.nextMove(myBoard, 0, new Circle());
+        logic.nextMove(myBoard, 2, new Cross());
+        logic.nextMove(myBoard, 3, new Circle());
+        logic.nextMove(myBoard, 4, new Cross());
+        logic.nextMove(myBoard, 6, new Circle());
+        //When
+        boolean firstCheck = logic.checkIfVictory(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
+        //Then
+        Assert.assertTrue(firstCheck);
+        Assert.assertTrue(secondCheck);
+    }
+
+    @Test
+    public void testCaseTicTacToe8() {
+        //Given
+        TicTacToeLogic logic = new TicTacToeLogic();
+        Board myBoard = Board.createBoard();
+        logic.nextMove(myBoard, 0, new Circle());
+        logic.nextMove(myBoard, 1, new Cross());
+        logic.nextMove(myBoard, 5, new Circle());
+        logic.nextMove(myBoard, 4, new Cross());
+        logic.nextMove(myBoard, 6, new Circle());
+        //When
+        boolean firstCheck = logic.checkIfVictory(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
+        //Then
+        Assert.assertFalse(firstCheck);
+        Assert.assertTrue(secondCheck);
+    }
+
+    @Test
+    public void testCaseTicTacToe9() {
+        //Given
+        TicTacToeLogic logic = new TicTacToeLogic();
+        Board myBoard = Board.createBoard();
+        logic.nextMove(myBoard, 0, new Circle());
+        logic.nextMove(myBoard, 1, new Cross());
+        logic.nextMove(myBoard, 5, new Circle());
+        logic.nextMove(myBoard, 4, new Cross());
+        logic.nextMove(myBoard, 6, new Circle());
+        logic.nextMove(myBoard, 8, new Cross());
+        //When
+        boolean firstCheck = logic.checkIfVictory(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
+        //Then
+        Assert.assertFalse(firstCheck);
+        Assert.assertTrue(secondCheck);
+    }
+
+    @Test
+    public void testCaseTicTacToe10() {
+        //Given
+        TicTacToeLogic logic = new TicTacToeLogic();
+        Board myBoard = Board.createBoard();
+        logic.nextMove(myBoard, 0, new Circle());
+        logic.nextMove(myBoard, 1, new Cross());
+        logic.nextMove(myBoard, 5, new Circle());
+        logic.nextMove(myBoard, 4, new Cross());
+        logic.nextMove(myBoard, 6, new Circle());
+        logic.nextMove(myBoard, 7, new Cross());
+        //When
+        boolean firstCheck = logic.checkIfVictory(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
+        //Then
+        Assert.assertTrue(firstCheck);
+        Assert.assertTrue(secondCheck);
+    }
+
+    @Test
+    public void testCaseTicTacToe11() {
+        //Given
+        TicTacToeLogic logic = new TicTacToeLogic();
+        Board myBoard = Board.createBoard();
+        logic.nextMove(myBoard, 2, new Circle());
+        logic.nextMove(myBoard, 1, new Cross());
+        logic.nextMove(myBoard, 5, new Circle());
+        logic.nextMove(myBoard, 0, new Cross());
+        logic.nextMove(myBoard, 8, new Circle());
+        //When
+        boolean firstCheck = logic.checkIfVictory(myBoard);
+        boolean secondCheck = logic.areAnyBlankFieldsOnBoard(myBoard);
+        //Then
+        Assert.assertTrue(firstCheck);
+        Assert.assertTrue(secondCheck);
     }
 }
